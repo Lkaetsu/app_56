@@ -30,21 +30,6 @@ services:
       - ./.docker/mysql:/docker-entrypoint-initdb.d
     networks:
       - mynetwork
-  db_test:
-    image: mysql:8.3.0
-    container_name: mysql_test
-    restart: unless-stopped
-    environment:
-      MYSQL_DATABASE: ${DB_DATABASE}
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
-      MYSQL_USER: ${DB_USERNAME}
-      SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
-    volumes:
-      - ./.docker/mysql:/mysql_test:/var/lib/mysql
-    networks:
-      - mynetwork
   nginx:
     image: nginx:alpine
     container_name: nginx
