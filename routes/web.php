@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AlunosController;
+use App\Http\Controllers\MateriasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +23,8 @@ Route::get('/aluno', [AlunosController::class, 'index']);
 Route::post('/aluno', [AlunosController::class, 'store']);
 Route::patch('/aluno', [AlunosController::class, 'update']);
 Route::delete('/aluno', [AlunosController::class, 'destroy']);
+
+Route::get('/materia', [materiasController::class, 'index']);
+Route::post('/materia', [materiasController::class, 'store']);
+Route::patch('/materia', [materiasController::class, 'update']);
+Route::delete('/materia', [materiasController::class, 'destroy']);

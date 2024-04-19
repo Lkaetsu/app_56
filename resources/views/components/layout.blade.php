@@ -29,7 +29,22 @@
         <p class="alert alert-info">{{ session()->get('sucesso') }}</p>
     </div>
     @endif
-    <h2>CRUD</h2>
+    <a href="/"><h2>CRUD</h2></a>
+    <div class="row row-cols-1 row-cols-md-2 g-4 y-5" style="width: 36rem;">
+        <div class="col-sm-6">
+            <div class="card">
+                <h3 class="card-header">
+                    <p class="card-text">Tables</p>
+                </h3>
+                <div class="card-body">
+                    <p class="card-text">- <a href="/aluno">Alunos</a></p>
+                    <p class="card-text">- <a href="/curso">Cursos</a></p>
+                    <p class="card-text">- <a href="/materia">Matérias</a></p>
+                    <p class="card-text">- <a href="/professor">Professores</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
     @yield('content')
     </body>
 </html>

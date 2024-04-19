@@ -16,7 +16,7 @@ class AlunosController extends Controller
     public function store(Request $request){
         $attributes=$request->validate([
             'name'=>'required|max:50',
-            'RA'=>'required|unique:alunos,RA',
+            'RA'=>'required|numeric|unique:alunos,RA',
         ]);
         
         $aluno=Aluno::Create($attributes);

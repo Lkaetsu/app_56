@@ -17,7 +17,9 @@ class MateriaFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->name(),
+            'desc' => fake()->paragraph(),
+            'professor_id' =>Professor::factory()->create(),
         ];
     }
 }

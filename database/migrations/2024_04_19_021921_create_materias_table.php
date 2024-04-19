@@ -12,6 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('materias', function (Blueprint $table) {
+            $table->string('name');
+            $table->string('desc');
+            $table->foreignId('professor_id')->nullable()->onUpdate('cascade')->onDelete('cascade');
             $table->id();
             $table->timestamps();
         });

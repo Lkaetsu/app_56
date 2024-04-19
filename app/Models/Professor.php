@@ -14,8 +14,4 @@ class Professor extends Model
 class Professor extends Model
 {
 
-    public function materia(): HasMany
-    {
-        return $this->hasMany(Materia::class,'professor_materia');
-    }
 }
