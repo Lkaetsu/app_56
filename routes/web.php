@@ -20,3 +20,5 @@ Route::get('/', function () {
 
 Route::get('/aluno', [AlunosController::class, 'index']);
 Route::post('/aluno', [AlunosController::class, 'store']);
+Route::patch('/aluno', [AlunosController::class, 'update']);
+Route::delete('/aluno', [AlunosController::class, 'destroy']);

@@ -22,6 +22,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
         integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
     </script>
+    @if (session()->has('sucesso'))
+    <div x-data="{show:true}"
+         x-init="setTimeout(()=>show=false,5000)"
+         x-show="show">
+        <p class="alert alert-info">{{ session()->get('sucesso') }}</p>
+    </div>
+    @endif
     <h2>CRUD</h2>
     @yield('content')
     </body>

@@ -42,6 +42,11 @@ Gerar a key do projeto Laravel
 php artisan key:generate
 ```
 
+Para os testes funcionarem
+```sh
+php artisan config:cache
+php artisan config:clear
+```
 
 Migrar as tabelas mysql
 ```sh

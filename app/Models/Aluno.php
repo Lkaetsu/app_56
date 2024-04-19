@@ -18,4 +18,9 @@ class Aluno extends Model
                 ->orwhere('RA','like','%'.$search.'%')
         );
     }
+
+    /* public function cursos()
+    {
+        return $this->belongstomany(Curso::class,'curso_aluno');
+    } */
 }
