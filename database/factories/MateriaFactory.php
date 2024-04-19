@@ -19,7 +19,6 @@ class MateriaFactory extends Factory
         return [
             'name' => fake()->name(),
             'desc' => fake()->paragraph(),
-            'professor_id' =>Professor::factory()->create(),
         ];
     }
 }
