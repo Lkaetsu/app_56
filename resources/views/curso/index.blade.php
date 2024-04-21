@@ -8,10 +8,10 @@
                  class="bg-transparent placeholder-gray font-semibold text-sm"
                  value="{{ request('search') }}">
         </form>
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Create">New Materia</button>
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Create">New Curso</button>
         @section('modal-create')
             <div class="inner">
-                <form action="/materia" method="POST">
+                <form action="/curso" method="POST">
                     @csrf
                     <div class="mb-6">
                         <label for="name">Nome Completo</label>
@@ -46,10 +46,10 @@
             </div>
         @endsection
     </div>
-    @if($materias->count()>0)
+    @if($cursos->count()>0)
         <div class="table-responsive">
             <table class="table table-hover table-sm">
-                <caption>Lista de materias</caption>
+                <caption>Lista de cursos</caption>
                 <thead class="dark">
                     <tr>
                         <th scope="col">id</th>
@@ -61,20 +61,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($materias as $materia)
+                    @foreach($cursos as $curso)
                         <tr>
-                            <th scope="row">{{ $materia->id }}</th>
-                            <td>{{ $materia->name }}</td>
-                            <td>{{ $materia->desc }}</td>
-                            <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Alter{{ $materia->id }}">Alter</button></td>
-                            <div class="modal" id="Alter{{ $materia->id }}" tabindex="-1" aria-labelledby="Alter{{ $materia->id }}">
+                            <th scope="row">{{ $curso->id }}</th>
+                            <td>{{ $curso->name }}</td>
+                            <td>{{ $curso->desc }}</td>
+                            <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Alter{{ $curso->id }}">Alter</button></td>
+                            <div class="modal" id="Alter{{ $curso->id }}" tabindex="-1" aria-labelledby="Alter{{ $curso->id }}">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title">Alter</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
-                                        <form action="/materia" method="POST">
+                                        <form action="/curso" method="POST">
                                             @csrf
                                             @method('PATCH')
                                             <div class="mb-6">
@@ -83,7 +83,7 @@
                                                     class="border border-gray-400 p-2 w-full"
                                                     name="name" 
                                                     id="name"
-                                                    value="{{ $materia->name }}"
+                                                    value="{{ $curso->name }}"
                                                     required>
                                                     <small id="name" class="form-text text-muted">
                                                         @error('name')
@@ -97,7 +97,7 @@
                                                     class="border border-gray-400 p-2 w-full"
                                                     name="desc" 
                                                     id="desc"
-                                                    value="{{ $materia->desc }}"
+                                                    value="{{ $curso->desc }}"
                                                     required>
                                                 <small id="desc" class="form-text text-muted">
                                                 @error('desc')
@@ -105,7 +105,7 @@
                                                 @enderror
                                                 </small>
                                             </div>
-                                            <input name="id" type="hidden" value="{{$materia->id}}" />
+                                            <input name="id" type="hidden" value="{{$curso->id}}" />
                                             <div class="modal-footer">
                                                 <button type="submit" class="btn btn-primary">Submit</button>
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Discard</button>
@@ -114,8 +114,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <td><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Confirm{{ $materia->id }}">Delete</button--></td>
-                             <div class="modal" id="Confirm{{ $materia->id }}" tabindex="-1" aria-labelledby="Confirm{{ $materia->id }}">
+                            <td><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Confirm{{ $curso->id }}">Delete</button--></td>
+                             <div class="modal" id="Confirm{{ $curso->id }}" tabindex="-1" aria-labelledby="Confirm{{ $curso->id }}">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -124,11 +124,11 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
-                                            <form action="/materia" method="POST">
+                                            <form action="/curso" method="POST">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit" class="btn btn-primary">Sim</button>
-                                                            <input name="id" type="hidden" value="{{$materia->id}}" />
+                                                            <input name="id" type="hidden" value="{{$curso->id}}" />
                                                         </form>
                                         </div>
                                     </div>
@@ -140,8 +140,8 @@
             </table>
         </div>
         @else
-        <p class="text-center">Sem materias criadas até o momento. Deseja criar uma?
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Create">New Materia</button>
+        <p class="text-center">Sem cursos criados até o momento. Deseja criar um?
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Create">New Curso</button>
         </p>
         @endif
 @endsection

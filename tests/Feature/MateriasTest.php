@@ -20,7 +20,7 @@ class MateriasTest extends TestCase
         $response->assertSee($materia->name);
     }
 
-    public function test_can_create_an_materia(): void
+    public function test_can_create_a_materia(): void
     {
         $materia = Materia::factory()->make();
 
@@ -30,14 +30,14 @@ class MateriasTest extends TestCase
 
     }
 
-    public function test_an_materia_requires_a_name(): void
+    public function test_that_a_materia_requires_a_name(): void
     {
         $materia = Materia::factory()->make(['name' => null]);
 
         $this->post('/materia', $materia->toArray())->assertSessionHasErrors('name');
     }
 
-    public function test_can_update_an_materia(): void
+    public function test_can_update_a_materia(): void
     {
         $materia = Materia::factory()->create();
         $materia->name = "update name";
@@ -47,7 +47,7 @@ class MateriasTest extends TestCase
         $this->assertDatabaseHas('materias',['id'=> $materia->id, 'name' => 'update name']);
     }
 
-    public function test_can_delete_an_materia(): void
+    public function test_can_delete_a_materia(): void
     {
         $materia = Materia::factory()->create();
         

@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AlunosController;
+use App\Http\Controllers\CursosController;
 use App\Http\Controllers\MateriasController;
+use App\Http\Controllers\ProfessorsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +26,17 @@ Route::post('/aluno', [AlunosController::class, 'store']);
 Route::patch('/aluno', [AlunosController::class, 'update']);
 Route::delete('/aluno', [AlunosController::class, 'destroy']);
 
-Route::get('/materia', [materiasController::class, 'index']);
-Route::post('/materia', [materiasController::class, 'store']);
-Route::patch('/materia', [materiasController::class, 'update']);
-Route::delete('/materia', [materiasController::class, 'destroy']);
+Route::get('/curso', [CursosController::class, 'index']);
+Route::post('/curso', [CursosController::class, 'store']);
+Route::patch('/curso', [CursosController::class, 'update']);
+Route::delete('/curso', [CursosController::class, 'destroy']);
+
+Route::get('/materia', [MateriasController::class, 'index']);
+Route::post('/materia', [MateriasController::class, 'store']);
+Route::patch('/materia', [MateriasController::class, 'update']);
+Route::delete('/materia', [MateriasController::class, 'destroy']);
+
+Route::get('/professor', [ProfessorsController::class, 'index']);
+Route::post('/professor', [ProfessorsController::class, 'store']);
+Route::patch('/professor', [ProfessorsController::class, 'update']);
+Route::delete('/professor', [ProfessorsController::class, 'destroy']);
