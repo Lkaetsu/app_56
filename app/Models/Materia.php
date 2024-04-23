@@ -19,4 +19,9 @@ class Materia extends Model
                 ->orwhere('desc','like','%'.$search.'%')
         );
     }
+
+    public function professor(): BelongsTo
+    {
+    return $this->belongsTo(Professor::class, 'professor_id');
+    }
 }

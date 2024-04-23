@@ -14,7 +14,8 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\Aluno::factory(10)->create();
         \App\Models\Materia::factory(10)->create();
-        \App\Models\Professor::factory(10)->create();
+        //\App\Models\Professor::factory(10)->create();
+        \App\Models\Curso::factory(10)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

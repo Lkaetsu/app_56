@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Curso;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,6 +20,7 @@ class AlunoFactory extends Factory
         return [
             'name' => fake()->name(),
             'RA' => fake()->unique()->numerify('########'),
+            //'curso_id' => Curso::factory()->create(),
         ];
     }
 }

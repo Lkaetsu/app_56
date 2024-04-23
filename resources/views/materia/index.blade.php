@@ -41,6 +41,20 @@
                         @enderror
                         </small>
                     </div>
+                    <div class="mb-6">
+                        <label for="professor_id">Professor</label>
+                        <select name="professor_id" id="professor_id">
+                            <option value="">Sem Professor</option>
+                            @foreach (\App\Models\Professor::all() as $professor)
+                                <option value="{{ $professor->id }}">{{ $professor->name }}</option>
+                            @endforeach
+                        </select>
+                        <small id="professor_id" class="form-text text-muted">
+                        @error('professor_id')
+                            <p class="error">**{{ $message }}**</p>
+                        @enderror
+                        </small>
+                    </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>          
             </div>
@@ -66,6 +80,11 @@
                             <th scope="row">{{ $materia->id }}</th>
                             <td>{{ $materia->name }}</td>
                             <td>{{ $materia->desc }}</td>
+                            @if ($materia->professor)
+                                <td>{{ $materia->professor->name }}</td>
+                            @else
+                                <td>Sem atribuição de professor até o momento!</td>
+                            @endif
                             <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Alter{{ $materia->id }}">Alter</button></td>
                             <div class="modal" id="Alter{{ $materia->id }}" tabindex="-1" aria-labelledby="Alter{{ $materia->id }}">
                                 <div class="modal-dialog">
@@ -101,6 +120,20 @@
                                                     required>
                                                 <small id="desc" class="form-text text-muted">
                                                 @error('desc')
+                                                    <p class="error">**{{ $message }}**</p>
+                                                @enderror
+                                                </small>
+                                            </div>
+                                            <div class="mb-6">
+                                                <label for="professor_id">Professor</label>
+                                                <select name="professor_id" id="professor_id">
+                                                    <option value="">Sem Professor</option>
+                                                    @foreach (\App\Models\Professor::all() as $professor)
+                                                        <option value="{{ $professor->id }}">{{ $professor->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                                <small id="professor_id" class="form-text text-muted">
+                                                @error('professor_id')
                                                     <p class="error">**{{ $message }}**</p>
                                                 @enderror
                                                 </small>

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Curso extends Model
 {
@@ -18,4 +19,9 @@ class Curso extends Model
                 ->orwhere('desc','like','%'.$search.'%')
         );
     }
+
+/*     public function alunos(): HasMany
+{
+    return $this->belongsTo(Aluno::class, 'aluno_id');
+} */
 }
